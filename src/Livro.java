@@ -7,6 +7,10 @@ public class Livro implements Publicacao {
     private Pessoa leitor;
 
     public Livro(String titulo, String autor, int totPaginas, Pessoa leitor) {
+        if (totPaginas < 0) {
+            throw new IllegalArgumentException("O total de paginas nao pode ser negativo");
+        }
+
         this.titulo = titulo;
         this.autor = autor;
         this.totPaginas = totPaginas;
@@ -36,7 +40,14 @@ public class Livro implements Publicacao {
     }
 
     public void setTotPaginas(int totPaginas) {
+        if (totPaginas < 0) {
+            throw new IllegalArgumentException("O total de paginas nao pode ser negativo");
+        }
+
         this.totPaginas = totPaginas;
+        if (pagAtual > totPaginas) {
+            pagAtual = totPaginas;
+        }
     }
 
     public int getPagAtual() {
@@ -44,6 +55,10 @@ public class Livro implements Publicacao {
     }
 
     public void setPagAtual(int pagAtual) {
+        if (pagAtual < 0 || pagAtual > totPaginas) {
+            throw new IllegalArgumentException("A pagina atual deve estar entre zero e o total de paginas");
+        }
+
         this.pagAtual = pagAtual;
     }
 
@@ -75,21 +90,21 @@ public class Livro implements Publicacao {
 
     @Override
     public void folhear(int p) {
-        if (aberto) {
+        if (aberto && p >= 0 && p <= totPaginas) {
             pagAtual = p;
         }
     }
 
     @Override
     public void avancarPag() {
-        if (aberto) {
+        if (aberto && pagAtual < totPaginas) {
             pagAtual++;
         }
     }
 
     @Override
     public void voltarPag() {
-        if (aberto) {
+        if (aberto && pagAtual > 0) {
             pagAtual--;
         }
     }
