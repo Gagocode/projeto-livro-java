@@ -1,0 +1,25 @@
+# Artefatos de compilacao Java
+*.class
+out/
+build/
+target/
+
+# Arquivos de IDE e configuracoes locais
+.idea/
+.vscode/
+*.iml
+.classpath
+.project
+.settings/
+
+# Arquivos temporarios do sistema
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# Documentos internos de execucao
+EXECUTION_PLAN.md
+EXECUTION_REPORT.md
+PROMPT_INICIAL.md
