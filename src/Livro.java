@@ -1,4 +1,4 @@
-public class Livro {
+public class Livro implements Publicacao {
     private String titulo;
     private String autor;
     private int totPaginas;
@@ -61,5 +61,36 @@ public class Livro {
 
     public void setLeitor(Pessoa leitor) {
         this.leitor = leitor;
+    }
+
+    @Override
+    public void abrir() {
+        aberto = true;
+    }
+
+    @Override
+    public void fechar() {
+        aberto = false;
+    }
+
+    @Override
+    public void folhear(int p) {
+        if (aberto) {
+            pagAtual = p;
+        }
+    }
+
+    @Override
+    public void avancarPag() {
+        if (aberto) {
+            pagAtual++;
+        }
+    }
+
+    @Override
+    public void voltarPag() {
+        if (aberto) {
+            pagAtual--;
+        }
     }
 }
