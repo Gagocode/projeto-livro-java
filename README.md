@@ -40,3 +40,13 @@ java -cp out Principal
 O programa demonstra a criacao de pessoas e livros, a abertura e o
 fechamento de um livro, a navegacao valida entre paginas e a preservacao do
 estado quando uma pagina invalida e solicitada.
+
+## Testes
+
+Os testes automatizados nao dependem de bibliotecas externas. Para compilar o
+projeto e executar todos os cenarios verificados:
+
+```powershell
+javac -Xlint:all -d out src\*.java test\TesteAplicacao.java
+java -ea -cp out TesteAplicacao
+```
