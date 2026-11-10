@@ -78,6 +78,23 @@ public class Livro implements Publicacao {
         this.leitor = leitor;
     }
 
+    public String detalhes() {
+        String dadosLeitor;
+        if (leitor == null) {
+            dadosLeitor = "nao informado";
+        } else {
+            dadosLeitor = leitor.getNome() + ", " + leitor.getIdade()
+                    + " anos, " + leitor.getSexo();
+        }
+
+        return "Titulo: " + titulo
+                + System.lineSeparator() + "Autor: " + autor
+                + System.lineSeparator() + "Total de paginas: " + totPaginas
+                + System.lineSeparator() + "Pagina atual: " + pagAtual
+                + System.lineSeparator() + "Estado: " + (aberto ? "aberto" : "fechado")
+                + System.lineSeparator() + "Leitor: " + dadosLeitor;
+    }
+
     @Override
     public void abrir() {
         aberto = true;
